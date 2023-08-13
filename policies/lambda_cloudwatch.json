@@ -1,0 +1,25 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+            "logs:CreateLogStream"
+        ],
+        "Resource": [
+            "${buildroot_log_group_arn}",
+            "${s3_slack_update_arn}"
+        ]
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+            "logs:PutLogEvents"
+        ],
+        "Resource": [
+            "${buildroot_log_group_arn}:*",
+            "${s3_slack_update_arn}:*"
+        ]
+      }
+    ]
+}
